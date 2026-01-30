@@ -1,0 +1,125 @@
+footer {
+  width: 100%;
+  background: #0f0f0f;
+  color: white;
+  padding: 60px 0;
+  margin-top: 80px;
+  font-family: "Inter", sans-serif;
+}
+
+.footerContainer {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+}
+
+/* === LEWA STRONA (Nazwa + opis) === */
+.name h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.name h1 span {
+  color: #22c55e;
+}
+
+.name p {
+  font-size: 15px;
+  opacity: 0.8;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+/* === LINKI === */
+.footerLinks h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.footerLinks ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footerLinks ul li {
+  margin-bottom: 10px;
+}
+
+.footerLinks ul li a {
+  color: white;
+  opacity: 0.75;
+  font-size: 15px;
+  transition: opacity 0.2s ease;
+}
+
+.footerLinks ul li a:hover {
+  opacity: 1;
+}
+
+/* === SOCIAL MEDIA === */
+.footerMedia ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footerMedia ul li {
+  margin-bottom: 10px;
+}
+
+.footerMedia ul li a {
+  color: white;
+  opacity: 0.75;
+  font-size: 15px;
+  transition: opacity 0.2s ease;
+}
+
+.footerMedia ul li a:hover {
+  opacity: 1;
+}
+
+/* === KONTAKT === */
+.footerContact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footerContact ul li {
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.footerContact ul li a {
+  margin-left: 6px;
+  color: #22c55e;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.footerContact ul li a:hover {
+  opacity: 0.8;
+}
+
+/* === RESPONSYWNOŚĆ === */
+@media (max-width: 900px) {
+  .footerContainer {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footerContainer {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .name p {
+    margin: 0 auto;
+  }
+}
