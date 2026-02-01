@@ -1,0 +1,116 @@
+.carList {
+  display: grid;
+  /* Tworzy siatkę, która automatycznie mieści tyle kart, ile wejdzie (min 280px) */
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+  list-style: none;
+  padding: 20px 0;
+  margin: 0;
+}
+@media screen and (max-width:800px) {
+    .carList {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (max-width:500px) {
+    .carList {
+        grid-template-columns: 1fr;
+    }
+}
+.carItem {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eaeaea;
+}
+
+.carItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.carLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Kontener na zdjęcie */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+.carThumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ważne: zdjęcie wypełnia obszar bez rozciągania */
+  transition: scale 0.5s ease;
+}
+
+.carItem:hover .carThumbnail {
+  scale: 1.05; /* Delikatny zoom przy najechaniu */
+}
+
+.noImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #888;
+  font-size: 0.9rem;
+  background: #eee;
+}
+
+/* Detale pod zdjęciem */
+.carDetails {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.carTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  /* Skraca zbyt długie nazwy do jednej linii */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.carSubDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.carSubDetails span:first-child {
+  color: #666;
+  font-size: 0.95rem;
+  background: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.carPrice {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #e74c3c; /* Wyrazisty czerwony dla ceny */
+}
+
+.empty {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  grid-column: 1 / -1; /* Napis zajmuje całą szerokość siatki */
+}

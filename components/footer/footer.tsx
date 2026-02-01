@@ -4,11 +4,11 @@ import styles from "./footer.module.css";
 export default function Footer() {
   return (
     <>
-      <footer>
+      <footer className={styles.footer}>
         <div className={styles.footerContainer}>
           <div className={styles.name}>
             <h1>
-              Auto<span>Komis</span>
+              Moto<span>Komis</span>
             </h1>
             <p>
               Działamy od 20 lat i ciągle się rozwijamy aby nasi klięci byli
@@ -36,6 +36,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className={styles.footerMedia}>
+            <h2>Media</h2>
             <ul>
                 <li><a href="">Tiktok</a></li>
                 <li><a href="">Instagram</a></li>

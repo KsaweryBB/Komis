@@ -2,140 +2,160 @@
 .NavContainer {
   width: 100%;
   height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  place-items: center;
   padding: 0 40px;
-
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 50;
-
-  background: rgba(255, 255, 255, 0.65);
+  top: 0; 
+  left: 0; 
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
-
-  font-family: "Inter", sans-serif;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* === LEFT SECTION (MENU + BUTTONS) === */
-.MenuButtons {
+/* Równe sekcje boczne dla idealnego wycentrowania logo */
+.LeftSection, .Buttons {
+  flex: 1;
+}
+
+.Buttons {
   display: flex;
-  align-items: center;
-  gap: 28px;
+  justify-content: flex-end;
 }
 
-/* === TOP-LEVEL MENU === */
+/* === LOGO (ŚRODEK) === */
+.Imagine {
+  text-align: center;
+}
+.Imagine a {
+  font-size: 24px;
+  font-weight: 800;
+  text-decoration: none;
+  color: #1a1a1a;
+}
+.Imagine span { color: #22c55e; }
+
+/* === MENU (LEWO) === */
 .NavSlideMen {
   display: flex;
+  align-items: center;
   gap: 22px;
   list-style: none;
-  position: relative;
 }
 
-.NavSlideMen > li > a {
-  font-size: 15px;
-  font-weight: 500;
+.NavSlideMen a, .navLabel {
+  text-decoration: none;
   color: #1a1a1a;
-  opacity: 0.85;
-  transition: opacity 0.2s ease;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
 }
 
-.NavSlideMen > li > a:hover {
-  opacity: 1;
+/* === LOGIKA WYŚWIETLANIA (DESKTOP VS MOBILE) === */
+.mobileOnly {
+  display: none; /* Ukryte na komputerze */
 }
 
-/* === DROPDOWN === */
-.NavSlideMen li {
-  position: relative;
+.desktopOnly {
+  display: block;
 }
 
-/* Hidden by default */
-.NavSlideMen li ul {
+/* === DROPDOWN (TYLKO DESKTOP) === */
+.NavSlideMen li { position: relative; }
+.Dropdown {
   position: absolute;
-  top: 100%;
+  top: 100%; 
   left: 0;
-
   background: white;
-  padding: 12px 0;
+  min-width: 180px;
+  padding: 10px 0;
   border-radius: 10px;
-  min-width: 200px;
-
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
-
-  opacity: 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  opacity: 0; 
   visibility: hidden;
   transform: translateY(10px);
-  transition: all 0.22s ease;
-
+  transition: 0.3s ease;
   list-style: none;
-  z-index: 100;
 }
 
-/* Show on hover */
-.NavSlideMen li:hover ul {
-  opacity: 1;
+.NavSlideMen li:hover .Dropdown {
+  opacity: 1; 
   visibility: visible;
   transform: translateY(0);
 }
 
-/* Dropdown items */
-.NavSlideMen li ul li {
-  padding: 10px 18px;
+.Dropdown li {
+  padding: 8px 20px;
 }
 
-.NavSlideMen li ul li a {
-  font-size: 14px;
-  font-weight: 500;
-  color: #1a1a1a;
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
+/* === PRZYCISKI === */
+.contactbutton {
+  background-color: #22c55e;
+  padding: 8px 18px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
 }
-
-.NavSlideMen li ul li a:hover {
-  opacity: 1;
-}
-
-
-/* === CENTER LOGO === */
-.Imagine img {
-  height: 34px;
-  width: auto;
-  object-fit: contain;
-}
-
-/* === RIGHT SECTION (SIGN IN / REGISTER) === */
-.Buttons {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-}
+.contactbutton a { color: white !important; }
+.contactbutton:hover { transform: scale(1.05); }
 
 .signIn {
-  font-size: 15px;
-  font-weight: 500;
-  color: #1a1a1a;
-  opacity: 0.85;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-}
-
-.signIn:hover {
-  opacity: 1;
-}
-
-.register {
-  background: #22c55e;
+  background: #22c55e; 
   color: white;
-  padding: 10px 20px;
+  padding: 10px 10px;
   border-radius: 8px;
-  font-size: 15px;
+  text-decoration: none;
   font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease;
+  font-size: 14px;
+  transition: opacity 0.2s;
 }
+.signIn:hover { opacity: 0.9; }
 
-.register:hover {
-  background: #16a34a;
+/* === HAMBURGER === */
+.Hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 110;
+}
+.Hamburger div { width: 28px; height: 3px; background: #333; transition: 0.3s; border-radius: 2px; }
+
+/* === MEDIA QUERIES (MOBILE) === */
+@media (max-width: 968px) {
+  .NavContainer { padding: 0 20px;
+  grid-template-columns: 0.25fr 1fr 0.5fr;
+  }
+  
+  .Hamburger { display: flex; }
+
+  .desktopOnly { display: none; } /* Ukrywamy "Ofertę" i dropdown */
+  .mobileOnly { display: block; }  /* Pokazujemy "Używane" i "Nowe" bezpośrednio */
+
+  .NavSlideMen {
+    position: fixed;
+    top: 0; 
+    left: -100%; /* Ukryte za lewą krawędzią */
+    width: 280px; 
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 100px 40px;
+    gap: 25px;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+  }
+
+  .NavSlideMen.active {
+    left: 0; /* Wysunięcie menu */
+  }
+
+  /* Animacja Hamburgera do X */
+  .barActive:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+  .barActive:nth-child(2) { opacity: 0; }
+  .barActive:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+  .contactbutton { width: 100%; text-align: center; }
 }
