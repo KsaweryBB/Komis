@@ -26,7 +26,7 @@ export default async function OfertaNowePage() {
         {pojazdy && pojazdy.length > 0 ? (
           <div className={styles.grid}>
             {pojazdy.map((auto) => (
-              <Link key={auto.id} href={`/${auto.slug}`} className={styles.card}>
+              <Link key={auto.id} href={`../motocykle/${auto.id}`} className={styles.card}>
                 <div className={styles.imageBox}>
                   {auto.imageUrl ? (
                     <img src={auto.imageUrl} alt={auto.marka} />

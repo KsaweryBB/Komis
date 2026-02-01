@@ -1,34 +1,27 @@
 import Link from "next/link";
-import styles from "./homecards.module.css"; // Pamiętaj o stworzeniu pliku CSS
+import { supabase } from "@/lib/supabase"; // Importuj swój skonfigurowany klient
+import styles from "./homecards.module.css";
 
 export default async function LatestOffers() {
-  let pages = [];
+  // 1. Pobieranie danych bezpośrednio z Supabase
+  const { data: pages, error } = await supabase
+    .from("pages")
+    .select("*")
+    .order("id", { ascending: false }) // Sortowanie bezpośrednio w bazie
+    .limit(6);
 
-  try {
-    // Pobieramy dane z Twojego API
-    const res = await fetch("http://localhost:3000/api/pages", {
-      cache: "no-store",
-    });
-
-    if (res.ok) {
-      pages = await res.json();
-    }
-  } catch (error) {
-    console.error("Błąd pobierania ofert:", error);
+  if (error) {
+    console.error("Błąd pobierania ofert z Supabase:", error.message);
+    return <p className={styles.empty}>Błąd ładowania ofert.</p>;
   }
-
-  // Definiujemy lastSix TUTAJ, aby uniknąć błędu ReferenceError
-  const lastSix = Array.isArray(pages) 
-    ? [...pages].sort((a: any, b: any) => b.id - a.id).slice(0, 6) 
-    : [];
 
   return (
     <ul className={styles.carList}>
-      {lastSix.length > 0 ? (
-        lastSix.map((p: any) => (
+      {pages && pages.length > 0 ? (
+        pages.map((p: any) => (
           <li key={p.id} className={styles.carItem}>
-            <Link href={`/motocykle/${p.id}`} className={styles.carLink}>
-              {/* Kontener na zdjęcie */}
+            {/* Upewnij się, że ścieżka Link href pasuje do Twojej struktury plików */}
+            <Link href={`/${p.slug}`} className={styles.carLink}>
               <div className={styles.imageWrapper}>
                 {p.imageUrl ? (
                   <img 
@@ -41,7 +34,6 @@ export default async function LatestOffers() {
                 )}
               </div>
 
-              {/* Dane samochodu */}
               <div className={styles.carDetails}>
                 <span className={styles.carTitle}>{p.marka}</span>
                 <div className={styles.carSubDetails}>
