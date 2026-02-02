@@ -1,0 +1,77 @@
+.polityka {
+  padding: 120px 20px 80px;
+  background-color: #fcfcfc;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.containerBox {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.containerBox h1 {
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+}
+
+.containerBox p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #4b5563;
+  margin: 0;
+}
+
+.containerBox ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  display: grid;
+  gap: 20px;
+}
+
+.containerBox li {
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 3px solid #e5e7eb;
+}
+
+.containerBox h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #1a1a1a;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .polityka {
+    padding: 100px 15px 40px;
+  }
+
+  .containerBox {
+    padding: 25px;
+  }
+
+  .containerBox h1 {
+    font-size: 1.25rem;
+  }
+}

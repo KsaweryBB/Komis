@@ -7,7 +7,7 @@ export default async function LatestOffers() {
   const { data: pages, error } = await supabase
     .from("pages")
     .select("*")
-    .order("id", { ascending: false }) // Sortowanie bezpośrednio w bazie
+    .order("created_at", { ascending: false }) // Sortowanie bezpośrednio w bazie
     .limit(6);
 
   if (error) {
@@ -20,28 +20,28 @@ export default async function LatestOffers() {
       {pages && pages.length > 0 ? (
         pages.map((p: any) => (
           <li key={p.id} className={styles.carItem}>
-            {/* Upewnij się, że ścieżka Link href pasuje do Twojej struktury plików */}
-            <Link href={`/motocykle/${p.id}`} className={styles.carLink}>
-              <div className={styles.imageWrapper}>
-                {p.imageUrl ? (
-                  <img 
-                    src={p.imageUrl} 
-                    alt={`${p.marka} zdjęcie`} 
-                    className={styles.carThumbnail} 
-                  />
-                ) : (
-                  <div className={styles.noImage}>Brak zdjęcia</div>
-                )}
-              </div>
+            <div className={styles.imageWrapper}>
+              {p.imageUrl ? (
+                <img
+                  src={p.imageUrl}
+                  alt={`${p.marka} zdjęcie`}
+                  className={styles.carThumbnail}
+                />
+              ) : (
+                <div className={styles.noImage}>Brak zdjęcia</div>
+              )}
+            </div>
 
-              <div className={styles.carDetails}>
-                <span className={styles.carTitle}>{p.marka}</span>
-                <div className={styles.carSubDetails}>
-                   <span>{p.rokprodukcji} r.</span>
-                   <span className={styles.carPrice}>{p.cena} PLN</span>
-                </div>
+            <div className={styles.carDetails}>
+              <span className={styles.carTitle}>{p.marka}</span>
+              <div className={styles.carSubDetails}>
+                <span>{p.rokprodukcji} r.</span>
+                <span className={styles.carPrice}>{p.cena} PLN</span>
               </div>
-            </Link>
+              <Link href={`/motocykle/${p.id}`} className={styles.carLink}>
+                Szczegóły oferty
+              </Link>
+            </div>
           </li>
         ))
       ) : (

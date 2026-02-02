@@ -1,0 +1,86 @@
+.statsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+  background-color: white;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.mainLabel {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.countdownWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 25px 35px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+  min-height: 120px;
+}
+
+.timeSegment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #1e293b;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.safetyColor {
+  color: #16a34a;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+}
+
+.separator {
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: #cbd5e1;
+  margin-top: -20px;
+}
+
+@media (max-width: 768px) {
+  .statsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .number {
+    font-size: 2.2rem;
+  }
+
+  .timeSegment {
+    min-width: 60px;
+  }
+}

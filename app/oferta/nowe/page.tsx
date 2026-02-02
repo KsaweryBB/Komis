@@ -2,27 +2,30 @@ import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import styles from "../oferta.module.css";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-
 export default async function OfertaNowePage() {
-  // Pobieramy dane filtrując po kolumnie 'stan'
-  // Zakładamy, że w bazie w kolumnie 'stan' wpisujesz tekst "nowe"
   const { data: pojazdy, error } = await supabase
     .from("pages")
     .select("*")
-    .ilike("stan", "Nowy"); // Filtrowanie: tylko rekordy gdzie stan == 'nowe'
+    .ilike("stan", "Nowy");
 
   if (error) {
     console.error("Błąd pobierania ofert:", error.message);
-    return <div style={{ padding: 120, textAlign: "center" }}>Błąd ładowania danych.</div>;
+    return (
+      <div style={{ padding: 120, textAlign: "center" }}>
+        Błąd ładowania danych.
+      </div>
+    );
   }
 
   return (
     <div className={styles.wrapper}>
       <header className={styles.hero}>
-        <h1>Nowe <span>Pojazdy</span></h1>
+        <h1>
+          Nowe <span>Pojazdy</span>
+        </h1>
         <p>Zobacz najnowsze modele prosto z salonu</p>
       </header>
 
@@ -30,7 +33,11 @@ export default async function OfertaNowePage() {
         {pojazdy && pojazdy.length > 0 ? (
           <div className={styles.grid}>
             {pojazdy.map((auto) => (
-              <Link key={auto.id} href={`../motocykle/${auto.id}`} className={styles.card}>
+              <Link
+                key={auto.id}
+                href={`../motocykle/${auto.id}`}
+                className={styles.card}
+              >
                 <div className={styles.imageBox}>
                   {auto.imageUrl ? (
                     <img src={auto.imageUrl} alt={auto.marka} />
@@ -45,7 +52,7 @@ export default async function OfertaNowePage() {
                     <h3>{auto.marka}</h3>
                     <span className={styles.price}>{auto.cena} PLN</span>
                   </div>
-                  
+
                   <div className={styles.specs}>
                     <span>{auto.rokprodukcji}</span>
                     <span className={styles.divider}>|</span>
@@ -60,7 +67,9 @@ export default async function OfertaNowePage() {
             ))}
           </div>
         ) : (
-          <div className={styles.empty}>Obecnie brak nowych pojazdów w ofercie.</div>
+          <div className={styles.empty}>
+            Obecnie brak nowych pojazdów w ofercie.
+          </div>
         )}
       </section>
     </div>

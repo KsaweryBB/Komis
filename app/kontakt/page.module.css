@@ -1,0 +1,125 @@
+.container {
+  padding: 120px 20px 60px;
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.hero h1 span {
+  color: #16a34a;
+}
+
+.hero p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.form {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  padding: 14px 18px;
+  border: 2px solid #f3f4f6;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: #f9fafb;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  outline: none;
+  border-color: #16a34a;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.1);
+}
+
+.submitBtn {
+  background: #16a34a;
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submitBtn:hover {
+  background: #15803d;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(22, 163, 74, 0.3);
+}
+
+.submitBtn:active {
+  transform: translateY(0);
+}
+
+.privacy {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.privacyLink {
+  color: #16a34a;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 100px 15px 40px;
+  }
+
+  .form {
+    padding: 25px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
+.lean {
+  font-family: oblique;
+}

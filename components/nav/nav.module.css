@@ -1,4 +1,3 @@
-/* === NAVBAR MAIN CONTAINER === */
 .NavContainer {
   width: 100%;
   height: 80px;
@@ -7,16 +6,16 @@
   place-items: center;
   padding: 0 40px;
   position: fixed;
-  top: 0; 
-  left: 0; 
+  top: 0;
+  left: 0;
   z-index: 100;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Równe sekcje boczne dla idealnego wycentrowania logo */
-.LeftSection, .Buttons {
+.LeftSection,
+.Buttons {
   flex: 1;
 }
 
@@ -25,7 +24,6 @@
   justify-content: flex-end;
 }
 
-/* === LOGO (ŚRODEK) === */
 .Imagine {
   text-align: center;
 }
@@ -35,9 +33,10 @@
   text-decoration: none;
   color: #1a1a1a;
 }
-.Imagine span { color: #22c55e; }
+.Imagine span {
+  color: #22c55e;
+}
 
-/* === MENU (LEWO) === */
 .NavSlideMen {
   display: flex;
   align-items: center;
@@ -45,7 +44,8 @@
   list-style: none;
 }
 
-.NavSlideMen a, .navLabel {
+.NavSlideMen a,
+.navLabel {
   text-decoration: none;
   color: #1a1a1a;
   font-weight: 500;
@@ -53,27 +53,27 @@
   cursor: pointer;
 }
 
-/* === LOGIKA WYŚWIETLANIA (DESKTOP VS MOBILE) === */
 .mobileOnly {
-  display: none; /* Ukryte na komputerze */
+  display: none;
 }
 
 .desktopOnly {
   display: block;
 }
 
-/* === DROPDOWN (TYLKO DESKTOP) === */
-.NavSlideMen li { position: relative; }
+.NavSlideMen li {
+  position: relative;
+}
 .Dropdown {
   position: absolute;
-  top: 100%; 
+  top: 100%;
   left: 0;
   background: white;
   min-width: 180px;
   padding: 10px 0;
   border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  opacity: 0; 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
   transition: 0.3s ease;
@@ -81,7 +81,7 @@
 }
 
 .NavSlideMen li:hover .Dropdown {
-  opacity: 1; 
+  opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
@@ -90,18 +90,21 @@
   padding: 8px 20px;
 }
 
-/* === PRZYCISKI === */
 .contactbutton {
   background-color: #22c55e;
   padding: 8px 18px;
   border-radius: 20px;
   transition: transform 0.3s ease;
 }
-.contactbutton a { color: white !important; }
-.contactbutton:hover { transform: scale(1.05); }
+.contactbutton a {
+  color: white !important;
+}
+.contactbutton:hover {
+  transform: scale(1.05);
+}
 
 .signIn {
-  background: #22c55e; 
+  background: #22c55e;
   color: white;
   padding: 10px 10px;
   border-radius: 8px;
@@ -110,9 +113,10 @@
   font-size: 14px;
   transition: opacity 0.2s;
 }
-.signIn:hover { opacity: 0.9; }
+.signIn:hover {
+  opacity: 0.9;
+}
 
-/* === HAMBURGER === */
 .Hamburger {
   display: none;
   flex-direction: column;
@@ -120,24 +124,36 @@
   cursor: pointer;
   z-index: 110;
 }
-.Hamburger div { width: 28px; height: 3px; background: #333; transition: 0.3s; border-radius: 2px; }
+.Hamburger div {
+  width: 28px;
+  height: 3px;
+  background: #333;
+  transition: 0.3s;
+  border-radius: 2px;
+}
 
-/* === MEDIA QUERIES (MOBILE) === */
 @media (max-width: 968px) {
-  .NavContainer { padding: 0 20px;
-  grid-template-columns: 0.25fr 1fr 0.5fr;
+  .NavContainer {
+    padding: 0 20px;
+    grid-template-columns: 0.25fr 1fr 0.5fr;
   }
-  
-  .Hamburger { display: flex; }
 
-  .desktopOnly { display: none; } /* Ukrywamy "Ofertę" i dropdown */
-  .mobileOnly { display: block; }  /* Pokazujemy "Używane" i "Nowe" bezpośrednio */
+  .Hamburger {
+    display: flex;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+  .mobileOnly {
+    display: block;
+  }
 
   .NavSlideMen {
     position: fixed;
-    top: 0; 
-    left: -100%; /* Ukryte za lewą krawędzią */
-    width: 280px; 
+    top: 0;
+    left: -100%;
+    width: 280px;
     height: 100vh;
     background: white;
     flex-direction: column;
@@ -145,17 +161,25 @@
     padding: 100px 40px;
     gap: 25px;
     transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
   }
 
   .NavSlideMen.active {
-    left: 0; /* Wysunięcie menu */
+    left: 0;
   }
 
-  /* Animacja Hamburgera do X */
-  .barActive:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
-  .barActive:nth-child(2) { opacity: 0; }
-  .barActive:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+  .barActive:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  .barActive:nth-child(2) {
+    opacity: 0;
+  }
+  .barActive:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
 
-  .contactbutton { width: 100%; text-align: center; }
+  .contactbutton {
+    width: 100%;
+    text-align: center;
+  }
 }

@@ -93,6 +93,7 @@ export default function NewPage() {
           <input name="przebieg" type="number" placeholder="Przebieg" />
           <input name="skrzynia" placeholder="Skrzynia" />
           <input name="pojemnoscskokowa" type="number" placeholder="Pojemność" />
+          <input name="model" placeholder="Model" />
           <div className={styles.fileInput}>
             <label>Zdjęcie pojazdu:</label>
             <input 

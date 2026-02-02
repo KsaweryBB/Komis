@@ -19,38 +19,53 @@ export default function Footer() {
             <h2>Linki</h2>
             <ul>
               <li>
-                <Link href=""></Link>
+                <Link href="/oferta/uzywane">Używane</Link>
               </li>
               <li>
-                <Link href=""></Link>
+                <Link href="/oferta/nowe">Nowe</Link>
               </li>
               <li>
-                <Link href=""></Link>
+                <Link href="/onas">O nas</Link>
               </li>
               <li>
-                <Link href=""></Link>
+                <Link href="/kontakt">Kontakt</Link>
               </li>
               <li>
-                <Link href=""></Link>
+                <Link href="/admin/login">Zaloguj się</Link>
               </li>
             </ul>
           </div>
           <div className={styles.footerMedia}>
             <h2>Media</h2>
             <ul>
-                <li><a href="">Tiktok</a></li>
-                <li><a href="">Instagram</a></li>
-                <li><a href="">Otomoto</a></li>
-                <li><a href="">Olx</a></li>
-                <li><a href="">Messenger</a></li>
+              <li>
+                <a href="">Tiktok</a>
+              </li>
+              <li>
+                <a href="">Instagram</a>
+              </li>
+              <li>
+                <a href="">Otomoto</a>
+              </li>
+              <li>
+                <a href="">Olx</a>
+              </li>
+              <li>
+                <a href="">Messenger</a>
+              </li>
             </ul>
           </div>
           <div className={styles.footerContact}>
             <ul>
-                <li>Telefon:<a href="">0000000</a></li>
-                <li>Email:<a href="">example@com.pl</a></li>
-                <li>Adres:<a href="">Słoneczna 51</a></li>
-
+              <li>
+                Telefon:<a href="">0000000</a>
+              </li>
+              <li>
+                Email:<a href="">example@com.pl</a>
+              </li>
+              <li>
+                Adres:<a href="">Słoneczna 51</a>
+              </li>
             </ul>
           </div>
         </div>

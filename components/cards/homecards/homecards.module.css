@@ -1,42 +1,51 @@
 .carList {
   display: grid;
-  /* Tworzy siatkę, która automatycznie mieści tyle kart, ile wejdzie (min 280px) */
   grid-template-columns: 1fr 1fr 1fr;
   gap: 25px;
   list-style: none;
   padding: 20px 0;
   margin: 0;
 }
-@media screen and (max-width:800px) {
-    .carList {
-        grid-template-columns: 1fr 1fr;
-    }
+@media screen and (max-width: 800px) {
+  .carList {
+    grid-template-columns: 1fr 1fr;
+  }
 }
-@media screen and (max-width:500px) {
-    .carList {
-        grid-template-columns: 1fr;
-    }
+@media screen and (max-width: 500px) {
+  .carList {
+    grid-template-columns: 1fr;
+  }
 }
 .carItem {
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   border: 1px solid #eaeaea;
 }
 
 .carItem:hover {
-  transform: translateY(-8px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .carLink {
-  text-decoration: none;
-  color: inherit;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #22c55e;
+  background: transparent;
+  color: #22c55e;
+  font-weight: 600;
+  transition: all 0.3s;
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.carLink:hover {
+  scale: 1.05;
 }
 
 /* Kontener na zdjęcie */
@@ -51,12 +60,8 @@
 .carThumbnail {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ważne: zdjęcie wypełnia obszar bez rozciągania */
+  object-fit: cover;
   transition: scale 0.5s ease;
-}
-
-.carItem:hover .carThumbnail {
-  scale: 1.05; /* Delikatny zoom przy najechaniu */
 }
 
 .noImage {
@@ -69,7 +74,6 @@
   background: #eee;
 }
 
-/* Detale pod zdjęciem */
 .carDetails {
   padding: 16px;
   display: flex;
@@ -81,7 +85,7 @@
   font-size: 1.2rem;
   font-weight: 700;
   color: #333;
-  /* Skraca zbyt długie nazwy do jednej linii */
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -105,12 +109,12 @@
 .carPrice {
   font-size: 1.15rem;
   font-weight: 800;
-  color: #e74c3c; /* Wyrazisty czerwony dla ceny */
+  color: #16a34a;
 }
 
 .empty {
   text-align: center;
   padding: 40px;
   color: #666;
-  grid-column: 1 / -1; /* Napis zajmuje całą szerokość siatki */
+  grid-column: 1 / -1;
 }
