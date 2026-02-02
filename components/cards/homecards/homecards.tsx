@@ -21,7 +21,7 @@ export default async function LatestOffers() {
         pages.map((p: any) => (
           <li key={p.id} className={styles.carItem}>
             {/* Upewnij się, że ścieżka Link href pasuje do Twojej struktury plików */}
-            <Link href={`/${p.slug}`} className={styles.carLink}>
+            <Link href={`/motocykle/${p.id}`} className={styles.carLink}>
               <div className={styles.imageWrapper}>
                 {p.imageUrl ? (
                   <img 
