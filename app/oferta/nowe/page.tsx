@@ -2,13 +2,17 @@ import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import styles from "../oferta.module.css";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
+
 export default async function OfertaNowePage() {
   // Pobieramy dane filtrując po kolumnie 'stan'
   // Zakładamy, że w bazie w kolumnie 'stan' wpisujesz tekst "nowe"
   const { data: pojazdy, error } = await supabase
     .from("pages")
     .select("*")
-    .eq("stan", "Nowy"); // Filtrowanie: tylko rekordy gdzie stan == 'nowe'
+    .ilike("stan", "Nowy"); // Filtrowanie: tylko rekordy gdzie stan == 'nowe'
 
   if (error) {
     console.error("Błąd pobierania ofert:", error.message);

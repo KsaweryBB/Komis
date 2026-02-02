@@ -2,6 +2,8 @@ import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import styles from "../oferta.module.css";
 
+export const revalidate = 60;
+
 export default async function OfertaNowePage() {
   // Pobieramy dane filtrując po kolumnie 'stan'
   // Zakładamy, że w bazie w kolumnie 'stan' wpisujesz tekst "nowe"
