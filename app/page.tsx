@@ -8,6 +8,12 @@ import Counter from "@/components/animation/Counter";
 import { ArrowDown } from "lucide-react";
 import MotoStats from "@/components/animation/Motostats/MotoStats";
 
+export const metadata = {
+  title: "MotoKomis",
+  description:
+    "Zaufany sklep motocyklowy",
+};
+
 export default async function CarDealerPage() {
   let pages = [];
 
