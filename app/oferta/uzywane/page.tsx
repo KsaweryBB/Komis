@@ -25,7 +25,7 @@ export default async function OfertaNowePage() {
         <h1>
           Używane <span>Pojazdy</span>
         </h1>
-        <p>Zobacz najnowsze modele prosto z salonu</p>
+        <p>Zobacz motocykle z drugiej ręki</p>
       </header>
 
       <section className={styles.container}>

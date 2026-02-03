@@ -10,6 +10,9 @@ const geistSans = Geist({
 });
 
 export const metadata = {
+    icons: {
+    icon: "icon.png"
+  },
   title: "MotoKomis",
   description:
     "Zaufany sklep motocyklowy",
