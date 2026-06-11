@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 
 type EditableFieldProps = {
-  id: number;          // ID rekordu w tabeli "pages"
-  field: string;       // nazwa kolumny np. "content", "marka", "moc"
+  id: number;
+  field: string;
   defaultValue: string | number | null;
 };
 
@@ -18,6 +18,8 @@ export default function EditableField({ id, field, defaultValue }: EditableField
   }, []);
 
   async function saveToDatabase(newValue: string) {
+    if (!newValue) return; // zabezpieczenie przed pustym body
+
     await fetch("/api/pages", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -34,7 +36,8 @@ export default function EditableField({ id, field, defaultValue }: EditableField
       contentEditable={isAdmin}
       suppressContentEditableWarning={true}
       onBlur={(e) => {
-        const newText = e.currentTarget.innerText;
+        const newText = e.currentTarget.innerText?.trim() ?? "";
+        if (!newText) return; // zabezpieczenie
         setValue(newText);
         saveToDatabase(newText);
       }}
