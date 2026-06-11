@@ -1,3 +1,6 @@
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 import { supabase } from "@/lib/supabase";
 import styles from "./slug.module.css";
 import EditableField from "@/components/Editabletext/EditableField";

@@ -1,3 +1,5 @@
+
+export const fetchCache = "force-no-store";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import styles from "../oferta.module.css";

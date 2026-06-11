@@ -1,6 +1,10 @@
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import styles from "./oferta.module.css";
+
 
 export default async function OfertaPage() {
   const { data: pojazdy, error } = await supabase.from("pages").select("*");
