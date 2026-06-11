@@ -6,6 +6,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!,
 );
 
+// GET — pobieranie wszystkich motocykli
 export async function GET() {
   try {
     const { data, error } = await supabase
@@ -23,6 +24,37 @@ export async function GET() {
   }
 }
 
+// PUT — aktualizacja dowolnego pola
+export async function PUT(req: Request) {
+  try {
+    const body = await req.json();
+
+    const { id, field, value } = body;
+
+    if (!id || !field) {
+      return NextResponse.json(
+        { error: "Brakuje id lub field" },
+        { status: 400 }
+      );
+    }
+
+    const { data, error } = await supabase
+      .from("pages")
+      .update({ [field]: value })
+      .eq("id", id)
+      .select();
+
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
+
+    return NextResponse.json({ success: true, data });
+  } catch (err) {
+    return NextResponse.json({ error: "Błąd serwera" }, { status: 500 });
+  }
+}
+
+// POST — dodawanie nowego motocykla
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -53,13 +85,11 @@ export async function POST(req: Request) {
       .select();
 
     if (error) {
-      console.error("Supabase Error:", error.message);
       return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
     return NextResponse.json({ success: true, data });
   } catch (err) {
-    console.error("API Error:", err);
     return NextResponse.json({ error: "Błąd serwera" }, { status: 500 });
   }
 }
