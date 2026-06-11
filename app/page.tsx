@@ -1,3 +1,7 @@
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 import styles from "./home.module.css";
 import { Reveal } from "../components/reveal/reveal";
 import Link from "next/link";
